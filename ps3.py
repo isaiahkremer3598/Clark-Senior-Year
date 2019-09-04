@@ -327,23 +327,26 @@ def substitute_hand(hand, letter):
         #decide whether to choose a vowel or consonant
         tempList = [1, 2]
         temp = random.choice(tempList)
-        if temp == 0:
+        if temp == 1:
             newLetter = random.choice(VOWELS)
             while newLetter in hand:
                 newLetter = random.choice(VOWELS)
+            hand.update({newLetter : freq})
             #get random vowel
             #pop said vowel with given freq into the dict
-        if temp == 1:
+        if temp == 2:
             newLetter = random.choice(CONSONANTS)
             while newLetter in hand:
                 newLetter = random.choice(CONSONANTS)
+            hand.update({newLetter : freq})
             #get random consonant
             #pop said consonant with given freq into the dict
         #add the randomly selected letter with the previous letters freq
-        hand.update({newLetter : freq})
+    else:
+        print("This letter is not in the hand")
     return hand
     
-    pass  # TO DO... Remove this line when you implement this function
+    #pass  # TO DO... Remove this line when you implement this function
        
     
 def play_game(word_list):
